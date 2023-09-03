@@ -19,9 +19,9 @@ MY_INSTANCE_NAME="my-app-instance"
 ZONE=us-central1-a
 
 gcloud compute instances create $MY_INSTANCE_NAME \
-    --image-family=debian-10 \
-    --image-project=debian-cloud \
-    --machine-type=g1-small \
+    --image-family=ubuntu-2004-lts \
+    --image-project=ubuntu-os-cloud \
+    --machine-type=n2-standard-2 \
     --scopes userinfo-email,cloud-platform \
     --metadata-from-file startup-script=startup-script.sh \
     --zone $ZONE \
