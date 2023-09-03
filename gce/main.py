@@ -12,15 +12,44 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from flask import Flask
+from flask import Flask, make_response, jsonify
 import tensorflow as tf
 import keras
+import os
+import time
+import datetime
+from tensorflow import keras
+import random
+
+from flask import Flask, jsonify
+
+from datetime import datetime, date, time, timezone
+
 app = Flask(__name__)
 
 
 @app.route('/', methods=['GET'])
 def say_hello():
     return "Hello, TEST/9/3/23/world!"
+
+@app.route('/2', methods=['GET'])
+def say_hello2():
+    listv = []
+    
+    time = str(datetime.now())
+    listv.append(time)
+    time.sleep(1)
+    
+    time2 = str(datetime.now())
+    listv.append(time2)
+    time.sleep(2.3)
+    
+    time3 = datetime.now()
+    listv.append(time3)
+    listV = jsonify(listv)
+    
+    
+    return listV
 
 
 if __name__ == '__main__':
